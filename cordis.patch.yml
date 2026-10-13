@@ -1,0 +1,10 @@
+# dsh-omni-modal bundle patch：把宿主行插进 profile 的插件名册。
+# 浏览器半由包的 `dsh.client` 清单承载（client registry 服务 lib/client.js，
+# 在设置左栏注册「全模态设置」分区），这一行负责在启动时物化宿主半
+# （配置存储 + /omni-modal/* 路由 + generate_image / generate_video / check_video 工具）。
+#
+# 安装方式见 README：手工挂载时把本行内容合并进 profile 的 package.json
+# 依赖与 `dsh.profile.bundles`，不要重复插入同一个 id（重复 id 会让 loader 崩溃）。
+- insert:
+    - id: dsh-omni-modal
+      name: 'dsh-omni-modal'
